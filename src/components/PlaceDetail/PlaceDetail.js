@@ -6,8 +6,12 @@ import {
     Image,
     Text,
     Button,
-    ScrollView
+    ScrollView,
+    TouchableOpacity
 } from 'react-native'
+import Icon from 'react-native-vector-icons/Ionicons'
+import NButton from '../NComponents/NButton'
+import {white, red} from '../../utils/colors'
 
 export default class PlaceDetail extends Component {
     render() {
@@ -26,7 +30,18 @@ export default class PlaceDetail extends Component {
                 <View style={styles.container}>
                     {modalContent}
                     <View style={styles.btnContainer}>
-                        <Button title="Delete" color="red" onPress={onItemDeleted}/>
+                        <TouchableOpacity>
+                            <View style={styles.deleteBtn}>
+                                <Icon size={30} name="ios-trash" color="red" />
+                            </View>
+                        </TouchableOpacity>
+
+                        <NButton color={red} style={nBtnStyles.container} onPress={onItemDeleted}>
+                            <Icon size={30} name="ios-trash" color={white} />
+                            <Text style={nBtnStyles.test}>Delete</Text>
+                        </NButton>
+
+                        <Button title="Delete" color={red} onPress={onItemDeleted}/>
                         <Button title="Close" onPress={onModelClosed}/>
                     </View>
                 </View>
@@ -55,5 +70,24 @@ const styles = StyleSheet.create({
     btnContainer: {
         flex: 1,
         justifyContent: "flex-end"
+    },
+    deleteBtn: {
+        alignItems: 'center'
     }
 });
+
+const nBtnStyles = StyleSheet.create({
+    container: {
+        padding: 10,
+        borderRadius: 7,
+        height: 45,
+        margin: 5,
+        width: 170,
+        flexDirection: 'row'
+    },
+    text: {
+        color: white,
+        fontSize: 22,
+        textAlign: 'center'
+    }
+})

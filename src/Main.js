@@ -60,7 +60,7 @@ class Main extends React.Component {
   
   const styles = StyleSheet.create({
     container: {
-      marginTop: Platform.OS === 'ios' ? 0 : 25,
+      // marginTop: Platform.OS === 'ios' ? 0 : 25,
       flex: 1,
       flexDirection: 'column',
       justifyContent: 'flex-start',
