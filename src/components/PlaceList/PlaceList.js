@@ -13,7 +13,7 @@ export default class PlaceList extends Component {
                 renderItem={({item}) => (<ListItem
                 placeName={item.name}
                 placeImage={item.image}
-                onItemPressed={() => this.props.onItemDeleted(item.key)}/>)}/>
+                onItemPressed={() => this.props.onItemSelected(item.key)}/>)}/>
         )
     }
 }
